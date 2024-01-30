@@ -1,12 +1,9 @@
 export default function Nav(){
+    const categoryList = ["City", "Ninjago", "Castles and Knights", "Marine and Pirates", "Movie Characters"]
     return(
         <nav>
             <ul>
-                <li><a href="#">City</a></li>
-                <li><a href="#">Ninjago</a></li>
-                <li><a href="#">Castles and Knights</a></li>
-                <li><a href="#">Marine and Pirates</a></li>
-                <li><a href="#">Movie Characters</a></li>
+                {categoryList.map((item, index) => `<li key={index}><a href="#">${item}<a/></li>`).join('')}
             </ul>
         </nav>
     )
