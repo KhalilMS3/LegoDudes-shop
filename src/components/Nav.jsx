@@ -3,7 +3,7 @@ export default function Nav(){
     return(
         <nav>
             <ul>
-                {categoryList.map((item, index) => `<li key={index}><a href="#">${item}<a/></li>`).join('')}
+                {categoryList.map((item, index) => <li key={index}><a href="#">{item}</a></li>)}
             </ul>
         </nav>
     )
