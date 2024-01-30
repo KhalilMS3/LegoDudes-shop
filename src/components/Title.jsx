@@ -1,5 +1,5 @@
-export default function Title(){
+export default function Title({category}){
       return(
-        <h2>Ninjago</h2>
+        <h2>{category}</h2>
       )
       }
