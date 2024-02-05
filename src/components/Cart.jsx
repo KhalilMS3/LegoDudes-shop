@@ -1,24 +1,13 @@
-export default function Cart(){
+import CartProduct from "./CartProduct";
+
+export default function Cart({toggle, cart, setCart}){
+    
     return(
-        <section id="cart">
+        <section id="cart" className={toggle ? "show" : null}>
         <h2>Din handlevogn</h2>
         <ul id="cartlist">
-            <li>
-                <span className="title">Produkttittel</span>
-                <span className="price">89,-</span>
-                <span className="quantity">x1</span>
-                <span className="functions">
-                    <button>X</button>
-                </span>
-            </li>
-            <li>
-                <span className="title">Wengestone warriors</span>
-                <span className="price">9989,-</span>
-                <span className="quantity">x333</span>
-                <span className="functions">
-                    <button>X</button>
-                </span>
-            </li>
+            {cart.map(product => <CartProduct key={product.prodid} prodid={product.prodid} title={product.title} price={product.price} quantity={product.quantity} setCart={setCart}/>)}
+
         </ul>
     </section>
     )

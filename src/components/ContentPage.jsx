@@ -2,7 +2,7 @@ import Title from "./Title"
 import ProductCard from "./ProductCard"
 import { products } from "../assets/legoduds"
 
-export default function ContentPage({amout, setAmount, category}){
+export default function ContentPage({amout, setAmount, category, cart, setCart}){
   return (
     <main>
           <Title category={category}/>
@@ -10,7 +10,10 @@ export default function ContentPage({amout, setAmount, category}){
             in this case, we have prodid as a unique key to make elements diff from each other */}
           {products.map(product => 
             <ProductCard 
+            cart={cart}
+            setCart={setCart}
             key={product.prodid} 
+            prodid={product.prodid}
             category={product.category} 
             img={product.imagefile} 
             title={product.title} 
@@ -18,7 +21,6 @@ export default function ContentPage({amout, setAmount, category}){
             amout={amout}
             setAmount={setAmount}
             />)}
-          
         </main>
   )
 }

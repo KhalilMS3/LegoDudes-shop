@@ -1,10 +1,24 @@
-export default function ProductCard({category, img, title, price, amount, setAmount}){
+import { useState } from "react"
 
+export default function ProductCard({category, img, title, price, prodid, setAmount, cart, setCart}){
+    const [product, setProduct] = useState({
+      title: title,
+      price: price,
+      prodid: prodid
+    })
     const handleClick = ()=>{
-      setAmount(prev => prev + 1)
+      const exist = cart.find(item => item.prodid === product.prodid)
+      setCart((prevCart) => 
+      exist ? prevCart.map(item => item.prodid === product.prodid ? {...item, quantity: item.quantity + 1} : item)
+      : [...prevCart, {...product, quantity: 1}]) 
+      countProducts()
+      }
+
+    const countProducts =()=>{
+      setAmount(cart.reduce((total, item) => total + item.quantity, 1))
     }
-    return (
-      <article>
+      return (
+        <article>
           <img src={"website_images/PROD_" + img} alt={title} />
           <a href="#">{category}</a>
           <h3>{title}</h3>
@@ -13,3 +27,4 @@ export default function ProductCard({category, img, title, price, amount, setAmo
       </article>
     )
   }
+
