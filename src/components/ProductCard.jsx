@@ -29,7 +29,7 @@ export default function ProductCard({category, img, title, price, prodid, setAmo
           <h3>{title}</h3>
           <span>Kr. {price},-</span>
           <button onClick={handleClick}>Legg i handlekurv</button>
-      </article>
+        </article>
     )
   }
 

@@ -3,7 +3,7 @@ import ProductCard from "./ProductCard"
 import { products } from "../assets/legoduds"
 import { useParams } from "react-router-dom"
 
-export default function ContentPage({amout, setAmount, category, cart, setCart}){
+export default function ContentPage({amount, setAmount, category, cart, setCart}){
   const {id} = useParams()
   return (
     <main>
@@ -20,7 +20,7 @@ export default function ContentPage({amout, setAmount, category, cart, setCart})
             img={product.imagefile} 
             title={product.title} 
             price={product.price}
-            amout={amout}
+            amount={amount}
             setAmount={setAmount}
             />)}
         </main>
